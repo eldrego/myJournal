@@ -18,7 +18,7 @@ const setUp = () => {
     notes
   });
 
-  const wrapper = shallow(<AllNotes {...props} store={store}/>);
+  const wrapper = shallow(<AllNotes {...props} store={store} />);
 
   return {
     props,
@@ -33,6 +33,6 @@ describe('My Journal application, AllNotes component', () => {
   // });
 
   it('renders without crashing', () => {
-    shallow(<wrapper/>);
+    shallow(<wrapper />);
   });
 });
