@@ -1,11 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import logo from '../../public/logo.png';
 import { logoutUser } from '../../actions/authActions';
-
-// import UserMenu from './UserMenu';
 
 class Header extends Component {
   constructor(props) {
@@ -18,12 +16,9 @@ class Header extends Component {
     this.props.logoutUser(this.props.history);
   }
 
-  render() {
-    const { loggedIn, user } = this.props;
-    let MenuDisplay;
-
-    if (loggedIn) {
-      MenuDisplay = <li className="nav-item dropdown">
+  renderUserMenu(user) {
+    return (
+      <Fragment><li className="nav-item dropdown">
         <a className="nav-link dropdown-toggle"
           id="navbarDropdown"
           role="button"
@@ -38,12 +33,19 @@ class Header extends Component {
           <div className="dropdown-divider"/>
           <span className="dropdown-item" onClick={this.logOut}>Logout</span>
         </div>
-      </li>;
-    } else {
-      MenuDisplay = <li className="nav-item">
-        <Link className="nav-link" to="/auth">Login</Link>
-      </li>;
-    }
+      </li>
+      <li className="nav-item">
+        <Link className="nav-link" to="/create-note">New Note</Link>
+      </li>
+      </Fragment>
+    );
+  }
+
+  render() {
+    const { loggedIn, user } = this.props;
+    const MenuDisplay = loggedIn ? this.renderUserMenu(user) : <li className="nav-item">
+      <Link className="nav-link" to="/auth">Login</Link>
+    </li>;
 
     return (
       <header >
@@ -60,9 +62,6 @@ class Header extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="navbar-nav float-right">
-                <li className="nav-item">
-                  <Link className="nav-link" to="/create-note">New Note</Link>
-                </li>
                 { MenuDisplay }
               </ul>
             </div>

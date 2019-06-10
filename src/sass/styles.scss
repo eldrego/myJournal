@@ -1,16 +1,23 @@
-@import "reset";
-@import "variables";
-@import "small-default";
-@import "cards";
+@import 'reset';
+@import 'variables';
+@import 'small-default';
+@import 'cards';
+@import 'landing-page';
 
 //35em is also 560px (if basefont is 16px)
 @media only screen and (min-width: 35em) {
-  @import "medium";
+  @import 'medium';
 }
 
 //64em is also 1028px (if basefont is 16px)
 @media only screen and (min-width: 64em) {
-  @import "large";
+  @import 'large';
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
 }
 
 html {
@@ -22,7 +29,8 @@ body {
   font-family: $default-font;
   color: $bacis-font-color;
   font-size: $font-size;
-  background-color: #f4f4f4;
+  font-weight: $normal-weight;
+  background-color: #f1f1f1;
 }
 
 h1,
@@ -34,6 +42,18 @@ h6 {
   font-family: $header-font-stack;
   margin: 0;
   padding: 0;
+}
+
+h3,
+.h3 {
+  font-size: 1.65rem;
+  font-weight: 600;
+  line-height: 2.3rem;
+}
+
+p {
+  letter-spacing: 0.01rem;
+  line-height: 1.5rem;
 }
 
 button,
@@ -57,7 +77,12 @@ button,
 }
 
 header {
-  background-color: $orange;
+  background-color: #ffffff;
+  border-bottom: 1px solid #ddd;
+}
+
+main {
+  padding-bottom: 3.75rem;
 }
 
 .login-logo-box {
@@ -87,7 +112,7 @@ header {
 }
 
 .auth-box {
-  margin-top:140px
+  margin-top: 140px;
 }
 
 .auth-footer {
@@ -117,6 +142,11 @@ header {
   }
 }
 
+.capitalize-text {
+  text-transform: capitalize;
+  font-weight: 500 !important;
+}
+
 .fullImage {
   background: no-repeat 100% 60%;
   background-image: url(https://images.unsplash.com/photo-1457369804613-52c61a468e7d);
@@ -129,7 +159,7 @@ header {
 
 .fullHeight {
   height: 100%;
-  padding:0; 
+  padding: 0;
 }
 
 .auth-header {
@@ -148,8 +178,8 @@ header {
   }
 }
 
-.text-error{ 
-  color: $red
+.text-error {
+  color: $red;
 }
 
 form {
@@ -179,7 +209,32 @@ form {
     outline: 0;
     box-shadow: 0 0 0 0rem rgba(255, 255, 255, 0);
   }
+}
 
+.text-primary {
+  color: $burnt-orange !important;
+}
+
+.section-header {
+  font-size: 1.75rem;
+  color: $orange;
+}
+
+.section-sub-header {
+  font-size: 1.05rem;
+  color: $burnt-orange;
+}
+
+.text-gray-600 {
+  color: $grey !important;
+}
+
+.border-bottom {
+  border-bottom: 1px solid #ddd;
+}
+
+.white-background {
+  background-color: $white-page-background;
 }
 
 .footer {
@@ -200,5 +255,4 @@ form {
   div {
     width: 48%;
   }
-
 }

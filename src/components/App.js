@@ -11,6 +11,7 @@ import {
   faLink, faTrash, faCoffee, faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 import AppRoute from './AppRoute';
+import UserLayout from './Layout/UserLayout';
 import PageLayout from './Layout/PageLayout';
 import AuthLayout from './Layout/AuthLayout';
 import NotFound from './pages/NotFound';
@@ -27,10 +28,10 @@ const App = () => (
     <Switch>
       <AppRoute exact path="/auth" layout={AuthLayout} component={Authenticator}/>
       <AppRoute exact path="/" layout={PageLayout} component={Home}/>
-      <AppRoute exact path="/create-note" layout={PageLayout} component={AddNote} />
-      <AppRoute exact path="/notes" layout={PageLayout} component={UserNotes} />
-      <AppRoute exact path="/notes/:noteID" layout={PageLayout} component={OneNote} />
-      <AppRoute path="*" layout={PageLayout} component={NotFound} />
+      <AppRoute exact path="/create-note" layout={UserLayout} component={AddNote} />
+      <AppRoute exact path="/notes" layout={UserLayout} component={UserNotes} />
+      <AppRoute exact path="/notes/:noteID" layout={UserLayout} component={OneNote} />
+      <AppRoute path="*" layout={UserLayout} component={NotFound} />
     </Switch>
   </BrowserRouter>
 );

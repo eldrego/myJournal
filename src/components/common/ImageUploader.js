@@ -13,7 +13,7 @@ class ImageUploader extends Component {
       imageUrl: null,
       isUploading: false,
       uploadError: null,
-      progress: 0,
+      progress: 0
     };
 
     this.handleUploadStart = this.handleUploadStart.bind(this);
@@ -42,7 +42,8 @@ class ImageUploader extends Component {
 
   handleUploadSuccess(filename) {
     this.setState({ image: filename, progress: 100, isUploading: false });
-    firebase.storage()
+    firebase
+      .storage()
       .ref('images')
       .child(filename)
       .getDownloadURL()
@@ -53,14 +54,15 @@ class ImageUploader extends Component {
   }
 
   handleImageDelete() {
-    firebase.storage()
+    firebase
+      .storage()
       .ref('images')
       .child(this.state.image)
       .delete()
       .then(() => {
         this.setState({
           image: null,
-          imageUrl: null,
+          imageUrl: null
         });
       });
   }
@@ -68,12 +70,13 @@ class ImageUploader extends Component {
   renderUploaded() {
     return (
       <div className="uploadedContent">
-        <FontAwesomeIcon icon="trash"
+        <FontAwesomeIcon
+          icon="trash"
           onClick={this.handleImageDelete}
           className="uplaodDeleteIcon"
           title="Remove Image"
         />
-        <div className="uploadedImage" >
+        <div className="uploadedImage">
           <img className="object-fit_cover" src={this.state.imageUrl} />
         </div>
       </div>
@@ -84,21 +87,16 @@ class ImageUploader extends Component {
     let iconDisplay;
 
     if (this.state.isUploading) {
-      iconDisplay = <FontAwesomeIcon
-        icon="spinner"
-        spin
-        title="Upload Image"
-      />;
+      iconDisplay = (
+        <FontAwesomeIcon icon="spinner" spin title="Upload Image" />
+      );
     } else {
-      iconDisplay = <FontAwesomeIcon
-        icon="plus"
-        title="Upload Image"
-      />;
+      iconDisplay = <FontAwesomeIcon icon="plus" title="Upload Image" />;
     }
 
     return (
       <label className="uploadButton">
-        { iconDisplay }
+        {iconDisplay}
         <FileUploader
           hidden
           accept="image/*"
@@ -115,19 +113,19 @@ class ImageUploader extends Component {
   }
 
   render() {
-    const uploadedContent = !this.state.image ? this.renderUploader() : this.renderUploaded();
+    const uploadedContent = !this.state.image
+      ? this.renderUploader()
+      : this.renderUploaded();
     return (
       <div className="uploadControl">
-        <div className="uploadContainer">
-          { uploadedContent }
-        </div>
+        <div className="uploadContainer">{uploadedContent}</div>
       </div>
     );
   }
 }
 
 ImageUploader.propTypes = {
-  uploadHandler: PropTypes.func.isRequired,
+  uploadHandler: PropTypes.func.isRequired
 };
 
 export default ImageUploader;

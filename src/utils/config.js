@@ -1,7 +1,5 @@
 const env = process.env.NODE_ENV; // 'dev' or 'test' or 'prod'
 
-console.log(env);
-
 const development = { api: { uri: process.env.API_DEV } };
 const test = { api: { uri: process.env.API_TEST } };
 const production = { api: { uri: process.env.API_PROD } };
