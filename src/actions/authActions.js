@@ -20,7 +20,7 @@ export const registerFailure = error => ({
   payload: error
 });
 
-export const registerUser = (userDetails, redirect) => (dispatch) => {
+export const registerUser = userDetails => (dispatch) => {
   dispatch(registerRequest(userDetails));
 
   api.post('/register', userDetails)
@@ -28,13 +28,11 @@ export const registerUser = (userDetails, redirect) => (dispatch) => {
       dispatch(registerSuccess(response.data));
       toastr.success(`Success : ${response.data.message}`);
       window.location.reload();
-      // console.log(redirect);
-      // redirect.push('/auth');
     })
-    // .catch((error) => {
-    //   toastr.error(`Error : ${error.response.data.message}`);
-    //   dispatch(registerFailure(error.response.data));
-    // });
+    .catch((error) => {
+      toastr.error(`Error : ${error.response.data.message}`);
+      dispatch(registerFailure(error.response.data));
+    });
 };
 
 export const loginRequest = userDetails => ({

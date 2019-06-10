@@ -2,3 +2,27 @@
   display: flex;
   flex-direction: column;
 }
+
+.img-half {
+  width: 50vw;
+  height: 100%;
+  margin-left: -0.93rem;
+}
+
+.img-half-left {
+  margin-left: calc(100% - 50vw + 0.93rem);
+}
+
+.img-half .img-cover {
+  position: relative;
+  max-width: 100%;
+  height: inherit;
+}
+
+.order-md-1 {
+  order: 1;
+}
+
+.order-md-2 {
+  order: 2;
+}

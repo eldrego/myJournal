@@ -5,15 +5,17 @@ $header-font-weight: 300;
 $header-font-size: 1rem;
 
 $normal-weight: 100;
-$font-size: 0.8rem;
+$font-size: 0.9rem;
 
 $bacis-font-color: #000000;
 $header-font-color: #000000;
 
-$burnt-orange: #C67C00;
-$orange: #FF9F01;
+$burnt-orange: #c67c00;
+$orange: #ff9f01;
+$grey: #869ab8;
+$red: #ff0000;
 
-$red: #FF0000;
+$white-page-background: #ffffff;
 
 $gutter: 2%;
 $gutterdbl: (2 * $gutter);
@@ -24,7 +26,7 @@ $gutterdbl: (2 * $gutter);
   border-radius: 10px;
 }
 
-%input-field{
+%input-field {
   box-sizing: border-box;
   border: 0px;
   background-color: #ffffff;

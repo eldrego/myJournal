@@ -8,8 +8,10 @@ class Footer extends Component {
           <div className="row">
             <div className="col-md-12 footer-content">
               <div className="footer-copyright">
-                <span className="text-muted copy-text">Copyright © 2018
-                My Journal, Lagos, Nigeria.</span>
+                <span className="text-muted copy-text">
+                  Copyright © {new Date().getFullYear()} My Journal, Lagos,
+                  Nigeria.
+                </span>
               </div>
             </div>
           </div>

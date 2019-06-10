@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 import Header from '../common/Header';
 import Footer from '../common/Footer';
 
-const PageLayout = (props) => {
+const UserLayout = (props) => {
   return (
     <Fragment>
       <Header history={props.history}/>
-      <main>
+      <main className="container contentContainer">
         { props.children }
       </main>
       <Footer />
@@ -15,10 +15,10 @@ const PageLayout = (props) => {
   );
 };
 
-PageLayout.propTypes = {
+UserLayout.propTypes = {
   match: PropTypes.object,
   history: PropTypes.object,
   children: PropTypes.object
 };
 
-export default PageLayout;
+export default UserLayout;
