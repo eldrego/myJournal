@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { registerUser } from '../../actions/authActions';
 
-class Register extends Component {
+export class Register extends Component {
   constructor(props) {
     super(props);
 
@@ -37,14 +37,14 @@ class Register extends Component {
       username: this.state.username,
       password: this.state.password,
       email: this.state.email,
-      fullname: this.state.fullname,
+      fullname: this.state.fullname
     };
 
     this.props.registerUser(userDetails, this.props.history);
   }
 
   verifyLogin() {
-    if ((this.props.loggedIn)) {
+    if (this.props.loggedIn) {
       this.props.history.push('/');
     }
   }
@@ -61,7 +61,8 @@ class Register extends Component {
 
   render() {
     const { errors } = this.props;
-    const errorMessage = errors && errors.length > 0 ? this.handelErrors(errors) : { };
+    const errorMessage =
+      errors && errors.length > 0 ? this.handelErrors(errors) : {};
 
     return (
       <div className="login-box">
@@ -86,8 +87,12 @@ class Register extends Component {
               value={this.state.fullname}
               onChange={this.onChange}
             />
-            <small id="fullname error"
-              className="form-text text-error">{ errorMessage.fullname }</small>
+            <small
+              id="fullname error"
+              className="form-text text-error fullname-error"
+            >
+              {errorMessage.fullname}
+            </small>
           </div>
 
           <div className="form-group">
@@ -99,8 +104,12 @@ class Register extends Component {
               value={this.state.email}
               onChange={this.onChange}
             />
-            <small id="email error"
-              className="form-text text-error">{ errorMessage.email }</small>
+            <small
+              id="email error"
+              className="form-text text-error email-error"
+            >
+              {errorMessage.email}
+            </small>
           </div>
 
           <div className="form-group">
@@ -112,8 +121,12 @@ class Register extends Component {
               value={this.state.username}
               onChange={this.onChange}
             />
-            <small id="username error"
-              className="form-text text-error">{ errorMessage.username }</small>
+            <small
+              id="username error"
+              className="form-text text-error username-error"
+            >
+              {errorMessage.username}
+            </small>
           </div>
 
           <div className="form-group">
@@ -125,8 +138,12 @@ class Register extends Component {
               value={this.state.password}
               onChange={this.onChange}
             />
-            <small id="password error"
-              className="form-text text-error">{ errorMessage.password }</small>
+            <small
+              id="password error"
+              className="form-text text-error password-error"
+            >
+              {errorMessage.password}
+            </small>
           </div>
           <button className="col-md-12 btn btn-journal" type="submit">
             Submit
@@ -143,14 +160,17 @@ Register.propTypes = {
   errors: PropTypes.array,
   message: PropTypes.string,
   success: PropTypes.bool,
-  loggedIn: PropTypes.bool,
+  loggedIn: PropTypes.bool
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   success: state.auth.success,
   message: state.auth.message,
   loggedIn: state.auth.loggedIn,
   errors: state.auth.errors
 });
 
-export default connect(mapStateToProps, { registerUser })(withRouter(Register));
+export default connect(
+  mapStateToProps,
+  { registerUser }
+)(withRouter(Register));
