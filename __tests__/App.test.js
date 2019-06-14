@@ -4,6 +4,7 @@ import App from '../src/components/App';
 
 describe('My Journal application', () => {
   it('renders without crashing', () => {
-    shallow(<App />);
+    const wrapper = shallow(<App />);
+    expect(wrapper).toBeDefined();
   });
 });

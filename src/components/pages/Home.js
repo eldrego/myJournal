@@ -27,7 +27,7 @@ const Home = () => {
       </section>
       <section className="border-bottom pt-4 pb-4">
         <div className="container">
-          <div className="row align-items-center justify-content-center">
+          <div className="row align-items-center justify-content-center coy-logos">
             <div className="col-6 col-sm-4 col-md-2 mb-4 mb-md-0">
               <div className="img-fluid text-gray-600 mb-2 mb-md-0 svg-shim">
                 <svg viewBox="0 0 2761 991" version="1.1">
