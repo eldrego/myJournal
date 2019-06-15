@@ -18,7 +18,8 @@
     "dev": "NODE_ENV=dev webpack-dev-server --mode development --open",
     "dev-test": "jest --watch",
     "test": "jest",
-    "cov": "open coverage/lcov-report/index.html",
+    "coverage": "cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
+    "opencov": "open coverage/lcov-report/index.html",
     "clean": "rm -rf build && mkdir build"
   },
   "jest": {
@@ -92,6 +93,7 @@
     "jest": "^24.8.0",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.2",
+    "nyc": "^14.1.1",
     "prettier": "^1.18.2",
     "react-test-renderer": "^16.7.0",
     "redux-devtools-extension": "^2.13.5",

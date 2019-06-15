@@ -23,7 +23,7 @@ jobs:
           command: npm test
       - run:
           name: code-coverage
-          command: 'cat coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js'
+          command: npm run coverage
       - store_artifacts:
           path: test-results.xml
           prefix: tests
