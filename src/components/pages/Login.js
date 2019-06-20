@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
+import { Redirect, withRouter } from 'react-router-dom';
 import { loginUser } from '../../actions/authActions';
 
 export class Login extends Component {
@@ -40,6 +40,7 @@ export class Login extends Component {
 
   verifyLogin() {
     if (this.props.loggedIn) {
+      // return <Redirect to={'/'} />;
       this.props.history.push('/');
     }
   }
