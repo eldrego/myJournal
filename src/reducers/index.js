@@ -7,6 +7,7 @@ import { reducer as toastrReducer } from 'react-redux-toastr';
 import noteReducer from './noteReducer';
 import authReducer from './authReducer';
 import categoryReducer from './categoryReducer';
+import profileReducer from './profileReducer';
 
 const authPersistConfig = {
   key: 'auth',
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   journal: noteReducer,
   auth: persistReducer(authPersistConfig, authReducer),
   category: categoryReducer,
-  toastr: toastrReducer,
+  profile: profileReducer,
+  toastr: toastrReducer
 });
 
 export default rootReducer;

@@ -46,3 +46,10 @@ $gutterdbl: (2 * $gutter);
 %padding-bottom50 {
   padding-bottom: 50px;
 }
+
+%subHeader {
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}

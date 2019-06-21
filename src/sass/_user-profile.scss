@@ -1,0 +1,23 @@
+.userProfile {
+  h4 {
+    @extend %subHeader;
+  }
+}
+
+.userDetails {
+  margin-top: 2rem;
+}
+
+.photoBox {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+
+  img.headshot {
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter, Switch } from 'react-router-dom';
+import { BrowserRouter, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -20,8 +20,9 @@ import AuthLayout from './Layout/AuthLayout';
 import NotFound from './pages/NotFound';
 import Home from './pages/Home';
 import Authenticator from './pages/Authenticator';
+import DashBoard from './pages/DashBoard';
 import AddNote from './pages/AddNote';
-import UserNotes from './pages/UserNotes';
+// import UserNotes from './pages/UserNotes';
 import OneNote from './pages/OneNote';
 
 library.add(
@@ -51,7 +52,7 @@ const App = () => (
         layout={UserLayout}
         component={AddNote}
       />
-      <AppRoute exact path="/notes" layout={UserLayout} component={UserNotes} />
+      <AppRoute exact path="/notes" layout={UserLayout} component={DashBoard} />
       <AppRoute
         exact
         path="/notes/:noteID"

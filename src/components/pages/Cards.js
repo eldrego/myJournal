@@ -5,21 +5,17 @@ import NoteCard from './NoteCard';
 const Cards = (props) => {
   const noteItems = props.notes.map((note) => {
     return (
-      <div key={note._id} className="col-md-4">
+      <div key={note._id} className="col-md-4 mb-4">
         <NoteCard note={note} />
       </div>
     );
   });
 
-  return (
-    <div className="card-deck">
-      { noteItems }
-    </div>
-  );
+  return <div className="card-deck">{noteItems}</div>;
 };
 
 Cards.propTypes = {
-  notes: PropTypes.array,
+  notes: PropTypes.array
 };
 
 export default Cards;

@@ -4,32 +4,34 @@ import PropTypes from 'prop-types';
 import { getUserNotes } from '../../actions/noteActions';
 import Cards from './Cards';
 
-
 class Notes extends Component {
   componentDidMount() {
     this.props.getUserNotes();
   }
 
-  componentDidUpdate(nextProps) {
-    if (nextProps) {
-      if (Object.values(nextProps.newNote).length > 0) {
-        if (this.props.userNotes !== nextProps.newNote) {
-          this.props.userNotes.unshift(nextProps.newNote);
-        }
-      }
-    }
-  }
+  // componentDidUpdate(nextProps) {
+  //   if (nextProps) {
+  //     if (Object.values(nextProps.newNote).length > 0) {
+  //       if (this.props.userNotes !== nextProps.newNote) {
+  //         this.props.userNotes.unshift(nextProps.newNote);
+  //       }
+  //     }
+  //   }
+  // }
 
   render() {
     const { userNotes } = this.props;
 
-    const NoteListing = userNotes.length > 0 ? <Cards notes={userNotes}/> : <h4><span>No notes</span></h4>;
+    const NoteListing =
+      userNotes.length > 0 ? (
+        <Cards notes={userNotes} />
+      ) : (
+        <h4>
+          <span>No notes</span>
+        </h4>
+      );
 
-    return (
-      <Fragment>
-        { NoteListing }
-      </Fragment>
-    );
+    return <Fragment>{NoteListing}</Fragment>;
   }
 }
 
@@ -39,9 +41,12 @@ Notes.propTypes = {
   newNote: PropTypes.object
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   userNotes: state.journal.userNotes,
   newNote: state.journal.item
 });
 
-export default connect(mapStateToProps, { getUserNotes })(Notes);
+export default connect(
+  mapStateToProps,
+  { getUserNotes }
+)(Notes);

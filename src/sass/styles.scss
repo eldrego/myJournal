@@ -3,6 +3,7 @@
 @import 'small-default';
 @import 'cards';
 @import 'landing-page';
+@import 'user-profile';
 
 //35em is also 560px (if basefont is 16px)
 @media only screen and (min-width: 35em) {
@@ -85,6 +86,22 @@ main {
   padding-bottom: 3.75rem;
 }
 
+.navbar {
+  padding-right: 0rem;
+  padding-left: 0rem;
+}
+
+.pageHeader {
+  font-size: 2rem;
+  padding: 1rem 0 1rem;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 1rem;
+}
+
+.subPageHeader {
+  @extend %subHeader;
+}
+
 .login-logo-box {
   @extend %logo-box;
   margin: 0 auto;
@@ -145,6 +162,10 @@ main {
 .capitalize-text {
   text-transform: capitalize;
   font-weight: 500 !important;
+}
+
+.logout {
+  cursor: pointer;
 }
 
 .fullImage {

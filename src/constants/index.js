@@ -11,7 +11,7 @@ export const authConstants = {
   LOGOUT_SUCCESS: 'LOGOUT_SUCCESS',
   LOGOUT_FAILURE: 'LOGOUT_FAILURE',
 
-  SWITCH_SUCCESS: 'SWITCH_SUCCESS',
+  SWITCH_SUCCESS: 'SWITCH_SUCCESS'
 };
 
 export const noteConstants = {
@@ -22,5 +22,11 @@ export const noteConstants = {
 };
 
 export const categoryConstants = {
-  FETCH_CATEGORIES: 'FETCH_CATEGORIES',
+  FETCH_CATEGORIES: 'FETCH_CATEGORIES'
+};
+
+export const userConstants = {
+  PROFILE_REQUEST: 'PROFILE_REQUEST',
+  PROFILE_SUCCESS: 'PROFILE_SUCCESS',
+  PROFILE_FAILURE: 'PROFILE_FAILURE'
 };

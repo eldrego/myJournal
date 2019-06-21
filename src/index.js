@@ -11,23 +11,21 @@ import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 require('./sass/styles.scss');
 
-console.log(process.env.API_DEV);
-
 ReactDOM.render(
   <Provider store={store}>
     <PersistGate loading={<Loading />} persistor={persistor}>
       <App />
       <ReduxToastr
-          timeOut={4000}
-          newestOnTop={false}
-          preventDuplicates
-          position="top-center"
-          transitionIn="fadeIn"
-          transitionOut="fadeOut"
-          progressBar={false}
-          closeOnToastrClick/>
+        timeOut={4000}
+        newestOnTop={false}
+        preventDuplicates
+        position="top-center"
+        transitionIn="fadeIn"
+        transitionOut="fadeOut"
+        progressBar={false}
+        closeOnToastrClick
+      />
     </PersistGate>
   </Provider>,
   document.getElementById('app')
 );
-

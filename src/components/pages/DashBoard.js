@@ -1,53 +1,30 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Cards from './Cards';
-import { getAllNotes } from '../../actions/noteActions';
+import React, { Fragment } from 'react';
+import UserProfile from '../common/UserProfile';
+import Notes from './Notes';
 
-export class AllNote extends Component {
-  componentDidMount() {
-    this.props.getAllNotes();
-  }
-
-  render() {
-    const { journal: { notes } } = this.props;
-
-    const noteListing = notes && notes.length === undefined
-      ? <Cards notes={notes}/>
-      : <h4><span>No notes available</span></h4>;
-
-    return (
-      <Fragment>
-        { noteListing }
-      </Fragment>
-    );
-  }
-}
-
-AllNote.propTypes = {
-  getAllNotes: PropTypes.func.isRequired,
-  journal: PropTypes.object
+const DashBoard = () => {
+  return (
+    <Fragment>
+      <div className="row">
+        <div className="col-md-12">
+          <h4 className="pageHeader">User Dashboard</h4>
+        </div>
+      </div>
+      <div className="row">
+        <div className="col-md-3">
+          <UserProfile />
+        </div>
+        <div className="col-md-9">
+          <div className="row justify-content-md-center">
+            <div className="col-md-12">
+              <h4 className="subPageHeader">My Notes</h4>
+              <Notes />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Fragment>
+  );
 };
 
-const mapStateToProps = state => ({
-  journal: state.journal,
-});
-
-export default connect(mapStateToProps, { getAllNotes })(AllNote);
-
-// render() {
-//   const { journal } = this.props;
-//   const noteItems = journal.notes.map((note) => {
-//     return (
-//       <div key={note._id} className="col-md-4">
-//         <NoteCard note={note} />
-//       </div>
-//     );
-//   });
-
-//   return (
-//     <div className="card-deck">
-//       { noteItems }
-//     </div>
-//   );
-// }
+export default DashBoard;
